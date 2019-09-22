@@ -21,39 +21,46 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
-				<version>${mule.tools.version}</version>
+				<version>1.7</version>
 				<extensions>true</extensions>
 				<configuration>
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<id>add-resource</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>add-resource</goal>
-						</goals>
-						<configuration>
-							<resources>
-								<resource>
-									<directory>src/main/app/</directory>
-								</resource>
-								<resource>
-									<directory>src/main/api/</directory>
-								</resource>
-								<resource>
-									<directory>mappings/</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<plugin>
+    <groupId>org.mule.tools.maven</groupId>
+	<artifactId>mule-app-maven-plugin</artifactId>
+    <configuration>
+        <cloudHubDeployment>
+            <uri>https://anypoint.mulesoft.com</uri>
+            <muleVersion>3.8.3</muleVersion>
+            <username>sudh341</username>
+            <password>Sudh341</password>
+            <applicationName>deploy-app-git-jenkins</applicationName>
+            <environment>Sandbox</environment>
+            
+            <workerType>Micro</workerType>
+            <workers>1</workers>
+        </cloudHubDeployment>
+    </configuration>
+<executions>
+
+  <execution>
+
+    <id>deploy</id>
+
+    <phase>deploy</phase>
+
+    <goals>
+
+      <goal>deploy</goal>
+
+    </goals>
+
+  </execution>
+
+</executions>
+</plugin>
 		</plugins>
 	</build>
 
