@@ -1,0 +1,26 @@
+#%RAML 1.0
+version: 1.0
+title: Exp-layer
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/278854f5-7e59-4431-b8f3-5f912d2a87e7/api/getdetails # baseUri: http://localhost:8081/api/getdetails
+description: This api is used as experience layer and used to get the specific data from the DataBase
+types:
+  emp-details: !include Schema/getdata.raml
+
+/getResponse:
+
+  get:
+
+    description: This method is used to fetch the details from the DataBase
+    responses:
+      200:
+       body:
+        application/json:
+            type: [emp-details]
+            example: !include example/example.json
+              
+                    
+    
+
+        
+        
+  
