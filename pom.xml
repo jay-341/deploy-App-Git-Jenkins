@@ -18,49 +18,49 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-app-maven-plugin</artifactId>
-				<version>1.7</version>
-				<extensions>true</extensions>
-				<configuration>
-                    <copyToAppsDirectory>true</copyToAppsDirectory>
-				</configuration>
-			</plugin>
+		<plugin>
+			<groupId>org.mule.tools.maven</groupId>
+			<artifactId>mule-app-maven-plugin</artifactId>
+			<version>${mule.tools.version}</version>
+			<extensions>true</extensions>
+			<configuration>
+			<copyToAppsDirectory>true</copyToAppsDirectory>
+			</configuration>
+		</plugin>
+
 <plugin> 
     <groupId>org.mule.tools.maven</groupId>
 	<artifactId>mule-maven-plugin</artifactId>
-	<version>1.7</version>
-    <configuration>
-        <cloudHubDeployment>
+	<version>2.0</version>
+    <configuration>    
             <uri>https://anypoint.mulesoft.com</uri>
             <muleVersion>3.8.3</muleVersion>
             <username>sudh341</username>
             <password>Sudh341</password>
             <applicationName>deploy-app-git-jenkins</applicationName>
             <environment>Sandbox</environment>
-            
+            <redeploy>true</redeploy>
             <workerType>Micro</workerType>
             <workers>1</workers>
-        </cloudHubDeployment>
+        
     </configuration>
-<executions>
-
-  <execution>
-
-    <id>deploy</id>
-
-    <phase>deploy</phase>
-
-    <goals>
-       <goal>deploy</goal>
-
-    </goals>
-
-  </execution>
-
-</executions>
+		<executions>
+		  <execution>
+		    <id>deploy</id>
+		    <phase>deploy</phase>
+		    <goals>
+		       <goal>deploy</goal>
+		    </goals>
+		 </execution>
+		</executions>
 </plugin>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<configuration>
+					<skip>true</skip>
+					</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
