@@ -27,7 +27,7 @@
                     <copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
-<plugin>
+<plugin> 
     <groupId>org.mule.tools.maven</groupId>
 	<artifactId>mule-maven-plugin</artifactId>
 	<version>1.7</version>
